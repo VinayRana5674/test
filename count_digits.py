@@ -1,11 +1,17 @@
-def count_digits(value):
-    """Count the number of digit characters in the given value.
+class DigitCounter:
+    """Count digit characters in a given value.
 
     Works for integers (the sign is ignored) and for arbitrary text.
     """
-    return sum(1 for char in str(value) if char.isdigit())
+
+    def __init__(self, value):
+        self.value = value
+
+    def count(self):
+        """Return the number of digit characters in the stored value."""
+        return sum(1 for char in str(self.value) if char.isdigit())
 
 
 if __name__ == "__main__":
     user_input = input("Enter a number or some text: ")
-    print(f"Number of digits: {count_digits(user_input)}")
+    print(f"Number of digits: {DigitCounter(user_input).count()}")
